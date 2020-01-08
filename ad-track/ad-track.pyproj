@@ -3,6 +3,7 @@
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <Name>ad-track</Name>
     <RootNamespace>ad-track</RootNamespace>
+    <InterpreterId>MSBuild|env-ad-track|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -29,6 +30,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GenericMetric\admin.py" />
+    <Compile Include="GenericMetric\apps.py" />
+    <Compile Include="GenericMetric\migrations\__init__.py" />
+    <Compile Include="GenericMetric\models.py" />
+    <Compile Include="GenericMetric\tests.py" />
+    <Compile Include="GenericMetric\views.py" />
+    <Compile Include="GenericMetric\__init__.py" />
     <Compile Include="manage.py" />
     <Compile Include="ad_track\__init__.py" />
     <Compile Include="ad_track\settings.py" />
@@ -36,10 +44,26 @@
     <Compile Include="ad_track\wsgi.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="GenericMetric\templates\GenericMetric\index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ad_track\" />
+    <Folder Include="GenericMetric\" />
+    <Folder Include="GenericMetric\migrations\" />
+    <Folder Include="GenericMetric\templates\" />
+    <Folder Include="GenericMetric\templates\GenericMetric\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env-ad-track\">
+      <Id>env-ad-track</Id>
+      <Version>3.7</Version>
+      <Description>env-ad-track (Python 3.7 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
   <!-- Specify pre- and post-build commands in the BeforeBuild and 

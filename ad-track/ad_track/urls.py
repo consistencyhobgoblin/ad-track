@@ -3,12 +3,15 @@ Definition of urls for ad_track.
 """
 
 from django.conf.urls import include, url
+import GenericMetric.views
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
 urlpatterns = [
+    url(r'^$', GenericMetric.views.index, name='index'),
+    url(r'^home$', GenericMetric.views.index, name='home'),
     # Examples:
     # url(r'^$', ad_track.views.home, name='home'),
     # url(r'^ad_track/', include('ad_track.ad_track.urls')),
