@@ -1,9 +1,12 @@
+
 <html>
-<head><title></title></head>
-
-<body>
-
-{{ content }}
-
-</body>
+    <head>
+        <title>{{ title }}</title>
+        {% load staticfiles %} <!-- Instruct Django to load static files -->
+        <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static '/bootstrap-3.4.1-dist/css/bootstrap.min.css' %}" />
+    </head>
+    <body>
+        <span class="text-uppercase">{{ message }}</span>{{ content }}
+    </body>
 </html>
